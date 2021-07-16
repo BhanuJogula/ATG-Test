@@ -55,6 +55,9 @@ constraint notifications_pk primary key (notification_id))
 comment on table NOTIFICATIONS is
    'Stores Notification details';
 
+ALTER TABLE NOTIFICATIONS
+    ADD CONSTRAINT NOTIFICATIONS_c1 CHECK (notification_type IN ('ACTIVATION','EXPIRATION'))
+
 
 --
 -- Table to configurae the product notifications
