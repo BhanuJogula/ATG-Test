@@ -63,7 +63,7 @@ create or replace package body cust_domain_subscription is
 
         insert into CUST_DOMAIN_NOTIFICATIONS(cust_notification_id, cust_sub_id, email_date)
         select cust_notifications_s.nextval, cds.cust_sub_id,
-          decode(nt.notification_type, 'START', cds.start_date + cds.duration, cds.end_date - cds.duration)
+          decode(nt.notification_type, 'ACTIVATION', cds.start_date + cds.duration, cds.end_date - cds.duration)
         from PRODUCT_NOTIFICATIONS pn, notifications nt, cust_domain_subscriptions cds
         where pn.product_id = pn_prod_id
         and nt.notification_id = pn.notification_id
