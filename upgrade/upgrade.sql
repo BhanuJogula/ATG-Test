@@ -48,7 +48,7 @@ create table NOTIFICATIONS (
 notification_id number not null, 
 description varchar2(200) not null,
 notification_type varchar2(200) not null, 
-days varchar2(200) not null,
+days number not null,
 created_date date not null,
 constraint notifications_pk primary key (notification_id)) 
 
