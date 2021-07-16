@@ -1,0 +1,7 @@
+Assumptions:
+
+1. Customer, product and domain information is already configured in the designed tables.
+2. Each product can have multiple notifications.
+3. Customer product subscriptions cannot be modified once the subscription is added. 
+4. Notifications always be configured in days 
+5. Subscription duration is configured and provided in number of days.
