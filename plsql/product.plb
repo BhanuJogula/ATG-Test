@@ -15,14 +15,19 @@ create or replace package body product is
    end;
 
 
-  procedure add_prod_notifications(pn_product_id in number,
+  procedure add_prod_notifications(pv_product_name in varchar2,
                                    pn_notification_id in number,
                                    pv_comments in varchar2)
   is 
+     ln_product_id number;
 
   begin
+
+     select product_id  into ln_product_id
+     from products where product_name = pv_product_name;
+
      insert into PRODUCT_NOTIFICATIONS(product_id, notification_id, description, created_date)
-       values(pn_product_id, pn_notification_id, pv_comments, sysdate);
+       values(ln_product_id, pn_notification_id, pv_comments, sysdate);
 
   exceptions
       when others then
