@@ -6,8 +6,8 @@ create or replace package body notification is
   is
 
   begin
-    if (upper(pv_notification_type) != 'START' and upper(pv_notification_type) != 'END') then
-        raise_application_error(-10017, 'Notification type can have the values only START or END');
+    if (upper(pv_notification_type) != 'ACTIVATION' and upper(pv_notification_type) != 'EXPIRATION') then
+        raise_application_error(-10017, 'Notification type can have the values only ACTIVATION or EXPIRATION');
     end if;
 
     insert into NOTIFICATIONS (notification_id, notification_type, days,description,created_date)
